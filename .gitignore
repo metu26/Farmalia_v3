@@ -1,0 +1,18 @@
+# Visual Studio cache / workspace
+**/.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# Configuration secrets
+appsettings.Development.json
+secrets.json
+
+# Rider
+.idea/
+
+# NuGet paketleri
+*.nupkg
