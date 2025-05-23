@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Farmalia.UI.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Background="{StaticResource BackgroundBrush}">
+
+    <Grid Height="425" Width="497">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- Logo -->
+            <Image Source="pack://application:,,,/Farmalia.UI;component/Resources/logo2.png"
+             Width="500" Height="200" Stretch="Uniform"/>
+
+            <!-- Firmanızın Adı -->
+            <TextBlock Text="Farmalia Eczane Otomasyonu"
+                 FontSize="{StaticResource AppFontSizeLarge}"
+                 FontWeight="Bold"
+                 Margin="0,20,0,5"
+                 TextAlignment="Center"/>
+
+            <!-- İrtibat Bilgileri -->
+            <TextBlock Text="İrtibat: 0123 456 7890  |  info@farmalia.com"
+                 FontSize="{StaticResource AppFontSizeNormal}"
+                 TextAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

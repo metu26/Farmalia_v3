@@ -1,12 +1,59 @@
 ﻿<Window x:Class="Farmalia.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Farmalia.UI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Farmalia v3"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanResize"
+        WindowStyle="SingleBorderWindow"
+        Background="{StaticResource BackgroundBrush}"
+        FontFamily="{StaticResource AppFontFamily}">
 
-    </Grid>
+    <DockPanel>
+
+        <!-- Üst Menüler -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Dosya">
+                <MenuItem Header="Çıkış" Command="{Binding ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="Düzen">
+                <!-- Bu komutları ViewModel’e eklemeyi unutma -->
+                <MenuItem Header="Ayarlar" Command="{Binding OpenSettingsCommand}" />
+            </MenuItem>
+            <MenuItem Header="Yardım">
+                <MenuItem Header="Hakkında" Command="{Binding OpenAboutCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <!-- Hızlı Aksiyon Butonları -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8">
+            <!-- Bunlar da MainWindowViewModel’de tanımlı olmalı -->
+            <Button Content="Yeni Satış" Command="{Binding NewSaleCommand}" />
+            <Button Content="Yeni Reçete" Command="{Binding NewPrescriptionCommand}" />
+            <Button Content="Yeni Sipariş" Command="{Binding NewPurchaseOrderCommand}" />
+        </StackPanel>
+
+        <!-- Sol Navigasyon Menüsü -->
+        <StackPanel DockPanel.Dock="Left" Width="180" Background="{StaticResource AccentBrush}">
+            <!-- Logo artık doğru pack URI ile -->
+            <Border Height="100" Background="{StaticResource BackgroundBrush}" VerticalAlignment="Center" Margin="8">
+                <Image Source="pack://application:,,,/Farmalia.UI;component/Resources/logo2.png"
+               Stretch="Uniform" Margin="8"/>
+            </Border>
+
+            <!-- Navigation Buttons -->
+            <Button Content="Dashboard"       Command="{Binding ShowDashboardCommand}" />
+            <Button Content="Stok Yönetimi"   Command="{Binding ShowInventoryCommand}" />
+            <Button Content="Satış"           Command="{Binding ShowSalesCommand}" />
+            <Button Content="Reçete"          Command="{Binding ShowPrescriptionsCommand}" />
+            <Button Content="Müşteriler"      Command="{Binding ShowCustomersCommand}" />
+            <Button Content="Tedarikçiler"    Command="{Binding ShowSuppliersCommand}" />
+            <Button Content="Raporlar"        Command="{Binding ShowReportsCommand}" />
+            <Button Content="Ayarlar"         Command="{Binding OpenSettingsCommand}" />
+        </StackPanel>
+
+        <!-- İçerik Alanı -->
+        <ContentControl Content="{Binding CurrentView}" Margin="12"/>
+
+    </DockPanel>
 </Window>
